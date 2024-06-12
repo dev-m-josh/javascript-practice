@@ -139,4 +139,236 @@ if(num2){
       console.log('Odd')
 }
 
+//Functions
+//eg 1
+function buyMilk(money) {
+      var bottle = 1.5;
+      var cost = (money / bottle);
+      cost = Math.floor(cost)
 
+console.log("Buy " + cost +" bottles of milk" )
+}
+
+buyMilk(10)
+
+//eg 2
+
+function lifeInWeeks(age){
+      var yearsLeft = (90 - age);
+      var monthsLeft = (yearsLeft * 12);
+      var weeksLeft = (yearsLeft * 52);
+      var daysLeft = (yearsLeft * 365);
+  console.log("You got, " + daysLeft + " days, " + weeksLeft + " weeks and " + monthsLeft + " months left.")    
+}
+lifeInWeeks(20)
+
+//eg 3
+//Return function
+
+function bmiCalculator(weight, height){
+      var bmi = weight / (height * height);
+      return Math.round(bmi);
+}
+
+ var bmi = bmiCalculator(65, 1.8);
+ console.log(bmi)
+
+//Calculating percentage
+//Percentage = (Given Value/Total Value) × 100
+
+function percentage(given_value, total_value){
+
+      var percent = (given_value / total_value) * 100;
+      return Math.floor(percent);
+}    
+
+var percent = percentage(45, 80);
+console.log(percent)
+
+//Area of trapezoid = 
+
+function trapezoidArea(B, b, h){
+      var area = ((B + b) / 2) * h;
+      return area;
+}
+
+var area = trapezoidArea(20, 15, 5);
+console.log(area)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+alert("Welcome")
