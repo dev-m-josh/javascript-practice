@@ -195,9 +195,27 @@ function trapezoidArea(B, b, h){
 var area = trapezoidArea(20, 15, 5);
 console.log(area)
 
+//Random number generation
+
+var n =Math.random();
+n = n *6;
+n = Math.floor(n) + 1;
+
+console.log(n)
 
 
+//In form of an alert in percentage
 
+prompt("What is your name?");
+prompt("What is their name?");
+
+var love = Math.random();
+love = love * 100;
+love = Math.floor(love) + 1;
+
+console.log(love)
+
+alert("Your love score is : " + love + "%")
 
 
 
