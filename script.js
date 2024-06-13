@@ -357,15 +357,34 @@ function fibanacciGenerator (n) {
 
             return output;
 }
-output = fibanacciGenerator (15)
+output = fibanacciGenerator (5)
+console.log(output)
+
+
+//creating a sequence that multiplies the last number by two.
+
+function sequence (x) {
+      var output = [];
+      if (x === 1) {
+            output = [0];
+      } else if (x === 2) {
+            output = [1];
+      }else {
+            output =[0, 1];
+            for (var y = 2; y < x; y++){
+                  output.push (output [output.length - 1] * 2)
+            }
+      }
+
+      return output;
+}
+
+output = sequence(10);
 console.log(output)
 
 
 
-
-
-
-
+//creating a sequence that substracts the fourth number from the  last number
 
 
 
