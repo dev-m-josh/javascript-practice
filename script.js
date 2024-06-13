@@ -1,3 +1,4 @@
+
 // //Comparison Operators
 
 //1 Equals to (==)
@@ -215,39 +216,128 @@ love = Math.floor(love) + 1;
 
 console.log(love)
 
-alert("Your love score is : " + love + "%")
+//combining operators
+
+if (love >= 65){
+      alert("Your love score is : " + love + "%" + " keep up you doig well.")
+} else if (love >= 45 && love <=65) {
+      alert("Your love score is : " + love + "%" + " Average try to spice it up.")
+} else {
+      alert("Your love score is : " + love + "%" + " Stop forcing issues.")
+}
+
+
+//Leap Year Challenge
+
+function ifLeapYear(year){
+      if (year % 4 === 0){
+            if (year % 100 === 0){
+                  if (year % 400 === 0){
+                        return "Leap year"
+                  }else{
+                        return "Not a leap year"
+                  }
+            }else{
+                  return "Leap year"
+            }
+      }else{
+            return "Not a leap year."
+      }
+}
+
+console.log (ifLeapYear(2024))
+
+//Collections working with arrays
+
+var guest_list = ["James", "Michael", "Robert", "John", "David","Joseph", "Charles", "Anthony", "Paul", "Scott"];
+var guestName = prompt("Whats your name?");
+var status = guest_list.includes(guestName);
+
+console.log (guest_list.includes(guestName))
+
+if (status = true){
+      alert ("welcome")
+}else{
+      alert ("Go home!")
+}
+
+
+// on multiple of 3 display Fizz
+// on multiple of 5 display Buzz
+//on multiple of 3 and 5 display FizzBuzz
+
+var output = [];
+var count = 1;
+
+function fizzBuzz () {
+      output.push (count);
+      count++;
+      if ( count % 3 === 0 && count % 5 === 0){
+            output.push("FizzBuzz")
+      }else if (count % 3 === 0){
+            output.push("Fizz")
+      }else if (count % 5 === 0){
+            output.push("Buzz")
+      }else {
+            output.push(count)
+      }
+
+      console.log (output);
+}
+
+
+function who_is_to_pay_for_lunch(names){
+
+var names = ["James", "Michael", "Robert", "John", "David","Joseph", "Charles", "Anthony", "Paul", "Scott"];
+
+ var numberOfPeople = names.length; //Array length
+ var randomPersonPosition = Math.floor (Math.random() * numberOfPeople); //Position for randomly chosen
+ var randomPerson =names[randomPersonPosition]; //identification of the the chosen from the array
+
+return randomPerson + " is going to buy lunch"
+}
+
+//Control statements While Loops
+
+var output = [];
+var count = 1;
+
+function fizzBuzz () {
+      
+      count++;
+      while(output <= 100) {
+      if ( count % 3 === 0 && count % 5 === 0){
+            output.push("FizzBuzz")
+      }else if (count % 3 === 0){
+            output.push("Fizz")
+      }else if (count % 5 === 0){
+            output.push("Buzz")
+      }else {
+            output.push(count)
+      }
+   
+}
+
+console.log (output.push);
+}
 
 
 
+var numberOfBottles = 99
+while (numberOfBottles >= 1 ) {
+    var bottleWord = "bottles";
+    if (numberOfBottles === 1) {
+        bottleWord = "bottle";
+    } 
+    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall");
+    console.log(numberOfBottles + " " + bottleWord + " of beer,");
+    console.log("Take one down, pass it around,");
+	numberOfBottles--;
+    console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Control statements For Loops
 
 
 
