@@ -336,7 +336,7 @@ while (numberOfBottles >= 1 ) {
     console.log(numberOfBottles + " " + bottleWord + " of beer on the wall.");
 }
 
-*/
+
 
 //Control statements For Loops
 function fibanacciGenerator (n) {
@@ -361,7 +361,7 @@ output = fibanacciGenerator (5)
 console.log(output)
 
 
-//creating a sequence that multiplies the last number by two.
+//creating a sequence that multiplies the last number of the sequence by two.
 
 function sequence (x) {
       var output = [];
@@ -382,11 +382,28 @@ function sequence (x) {
 output = sequence(10);
 console.log(output)
 
+*/
 
+//creating a sequence that substracts the third number from the  last number
 
-//creating a sequence that substracts the fourth number from the  last number
+function sequence (x) {
+      var output = [];
+      if (x === 1) {
+            output = [0];
+      } else if (x === 2) {
+            output = [1];
+      }else {
+            output =[0, 1, 2, 3];
+            for (var y = 2; y < x; y++){
+                  output.push (output [output.length -1] - output[2] )
+            }
+      }
 
+      return output;
+}
 
+output = sequence(10);
+console.log(output)
 
 
 
