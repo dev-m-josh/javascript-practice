@@ -1,4 +1,4 @@
-/*
+
 // //Comparison Operators
 
 //1 Equals to (==)
@@ -382,7 +382,7 @@ function sequence (x) {
 output = sequence(10);
 console.log(output)
 
-*/
+
 
 //creating a sequence that substracts the third number from the  last number
 
@@ -408,15 +408,56 @@ console.log(output)
 
 
 
+//Using "For" loops
 
 
+function sequence (x) {
+      var output = [];
+      if (x === 1) {
+            output = [0];
+      } else if (x === 2) {
+            output = [1];
+      }else {
+            output =[0, 1, 2, 3];
+            for (var y = 2; y < x; y++){
+                  output.push (output [output.length -1] - output[2] )
+            }
+      }
+
+      return output;
+}
+
+output = sequence(10);
+console.log(output)
 
 
+//A Simple Calculator Formula
 
-
-
-
-
+function add (num1, num2){
+      return num1 + num2;
+  }
+  
+  function substract (num1, num2){
+      return num1 - num2;
+  }
+  
+  function multiply (num1, num2){
+      return num1 * num2;
+  }
+  
+  function divide (num1, num2){
+      return num1 / num2;
+  }
+  
+  function remainder (num1, num2){
+      return num1 % num2;
+  }
+  
+  function calculator (num1, num2, operator) {
+      return operator(num1, num2);
+  }
+  
+  console.log (calculator (11, 5, remainder))
 
 
 
