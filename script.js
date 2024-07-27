@@ -1,4 +1,4 @@
-
+/*
 // //Comparison Operators
 
 //1 Equals to (==)
@@ -460,16 +460,42 @@ function add (num1, num2){
   console.log (calculator (11, 5, remainder))
 
 
+*/
+/******************************************/
 
 
 
 
+const name = document.getElementById("name")
+const password = document.getElementById("password")
+const form = document.getElementById("form")
+let errorEle = document.getElementById("error")
 
+form.addEventListener("submit", (e) => {
+      let messages = [];
+      if (name.value === "") {
+           console.log(messages.push("Name is needed!")) 
 
+      }
 
+      if (password.value.length <= 6) {
+            messages.push("Password must be longer!")
+      }
 
+      if (password.value.length >=17 ) {
+            messages.push("Password must be shorter!")
+      }
 
+      if (password.value === "password" ) {
+            messages.push("Password can't be set to password again")
+      }
 
+      if (messages.length > 0) {
+            e.preventDefault() 
+            errorEle.innerText = messages.join(", ") 
+      }
+      
+})
 
 
 
@@ -574,4 +600,9 @@ function add (num1, num2){
 
 
 
-alert("Welcome")
+
+
+
+
+
+
