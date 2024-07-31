@@ -498,6 +498,55 @@ form.addEventListener("submit", (e) => {
 })
 
 
+//The array functions revision
+// 1. .push()
+// The push() method adds new items to the end of an array.
+//The push() method changes the length of the array.
+//The push() method returns the new length.
+
+const fruitsArray = ["Banana", "Orange", "Apple", "Mango"];
+let newfruitsArray= fruitsArray.push("lemmon", "berries");
+console.log(fruitsArray);
+/*if we*/ console.log(newfruitsArray) /*we expect to get the new length of our original array*/
+
+
+/****************************************/
+// 2. .pop()
+// The pop() method is used to remove the last element from an  array and returns that element.
+//The pop() method changes the original array .
+//The pop() method returns the element it removed.
+
+const carTypes = ["fielder", "BMW", "Tesla", "Ford"];
+let chosenCar= carTypes.pop();
+console.log(chosenCar)
+
+
+/******************************************/
+// 3. .shift()
+//shift() method removes the first element from an array and returns that removed element.
+//This method changes the length of the array.
+//The shift() method returns the shifted element.
+//If the length property is 0, undefined is returned.
+
+const fruits = ["Orange", "Banana", "Apple", "Mango"];
+let chosenFruit = fruits.shift()
+console.log(chosenFruit)
+
+// 4. .unshift()
+// adds one or more elements to the beginning of an array.
+//returns the new length of the array.
+//The unshift() method overwrites the original array.
+
+const carsModels = ["fielder", "BMW", "Tesla", "Ford"];
+let newCarModels = carsModels.unshift("Harrier", "Hilux");
+/*new array length = */ console.log(newCarModels);
+
+//if multiple elements are passed as parameters, they're inserted in chunk at the beginning of the object, in the exact same order they were passed as parameters.
+
+carsModels.unshift("Benz");
+carsModels.unshift("Nissan CTR");
+carsModels.unshift("Subaru");
+console.log(carsModels)
 
 
 
