@@ -460,8 +460,8 @@ function add (num1, num2){
   console.log (calculator (11, 5, remainder))
 
 
-*/
-/******************************************/
+
+
 
 
 
@@ -496,9 +496,11 @@ form.addEventListener("submit", (e) => {
       }
       
 })
-
+*/
+/******************************************/
 
 //The array functions revision
+console.log("/******** 1. .push() **********/")
 // 1. .push()
 // The push() method adds new items to the end of an array.
 //The push() method changes the length of the array.
@@ -511,6 +513,7 @@ console.log(fruitsArray);
 
 
 /****************************************/
+console.log("/********* 2. .pop() *********/")
 // 2. .pop()
 // The pop() method is used to remove the last element from an  array and returns that element.
 //The pop() method changes the original array .
@@ -522,6 +525,7 @@ console.log(chosenCar)
 
 
 /******************************************/
+console.log("/******** 3. .shift() *********/")
 // 3. .shift()
 //shift() method removes the first element from an array and returns that removed element.
 //This method changes the length of the array.
@@ -532,6 +536,7 @@ const fruits = ["Orange", "Banana", "Apple", "Mango"];
 let chosenFruit = fruits.shift()
 console.log(chosenFruit)
 
+console.log("/******** 4. .unshift() ********/")
 // 4. .unshift()
 // adds one or more elements to the beginning of an array.
 //returns the new length of the array.
@@ -550,48 +555,411 @@ console.log(carsModels)
 
 
 
+/********************************************/
+console.log("/********** 5. .slice() **********/")
+// 5. .slice()
+//The slice() method returns selected elements in an array, as a new array.
+//The slice() method selects from a given start, up to a (not inclusive) given end.
+const fiveCars = carsModels.slice(2, 7)
+console.log(fiveCars)
+//The slice() method does not change the original array.
+console.log(carsModels)
+//the end position by default is the last element
+const lastCars = carsModels.slice(5)
+console.log(lastCars)
 
+/******************************************/
+console.log("/********** 6. .splice() **********/")
+//6. .splice()
+//The splice() method removes array elements Returns an array containing the removed items (if any)..
+let myFruitArray = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
+let removedFruits = myFruitArray.splice(1, 3);
+console.log(removedFruits);
 
+//adds at position 0 remove one item and add kiwi and Returns an array containing the removed items (if any).
+let addedfruits = myFruitArray.splice(0, 1, "Kiwi", "Lemon")
+console.log(addedfruits)
 
+//The splice() method overwrites the original array.
+console.log(myFruitArray)
 
+console.log("/********** 7. .lastIndexOf() **********/")
+//7. lastIndexOf()
+//returns the index from the beginning
+//string.lastIndexOf(searchvalue, start)
+//searchvalue = the string to search for
+// start = The position where to start.
 
+//Will return -1 if the value is not found
+let text = "Have a good day";
+let result = text.lastIndexOf("nice");
+console.log(result)
 
+//The lastIndexOf() method returns the index (position) of the last occurrence of a specified value in a string.
+let planetText = "The Planet earth is the planet to be in.";
+let planetResult = planetText.lastIndexOf("planet");
+console.log(planetResult)
+//it is case sensitive
+let planetsensitive = planetText.lastIndexOf("Planet");
+console.log(planetsensitive)
 
+/******************************************/
+console.log("/********** 8. .indexOf() **********/")
+//8. indexOf()
+//array.indexOf(item, start)
+//item = the value to search for
+//start = where to start the search and by default the start is at 0 
+let myfruits = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
+let indexOfMyFruits = myfruits.indexOf("Orange");
+console.log(indexOfMyFruits)
 
+//negative starts from the end but still from left to right
+let ruits = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
+let indexOfFruits = ruits.indexOf("Apple", -1);
+console.log(indexOfFruits)
 
+//if the value is not found the return is -1
+let fruitArray = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
+let myIndexOf = fruitArray.indexOf("guava");
+console.log(myIndexOf)
 
+console.log("/********** 9. .forEach() **********/")
+//8. forEach()
+//The forEach() method of Array instances executes a provided function once for each array element.
+//The forEach() method is not executed for empty elements
+//array.forEach(function(currentValue, index, arr), thisValue)
+//function() = to run for each array element
+//index = index of the current element
+//arr = array of the current element
+//returns undefined
+const number = [65, 44, 12, 4];
+number.forEach(multiply)
 
+console.log(number)
 
+function multiply(item,index,arr) {
+  arr[index] = item * 10;
+}
 
+//adding each element to sum each time
+let sum = 0;
+const numbers = [65, 44, 12, 4];
+numbers.forEach(myFunction);
 
+console.log(sum)
 
+function myFunction(item) {
+  console.log(item)
+  sum += item;
+}
 
+console.log("/**************** 10. .map() ****************/")
 
+//8. map()
+//map() creates a new array from calling a function for every array element.
+const persons = [
+  {
+    firstName : "Malcom",
+    lastName: "Reynolds"
+  },
+  {
+    firstName : "Kaylee", 
+    lastName: "Frye"
+  },
+  {
+    firstName : "Jayne", 
+    lastName: "Cobb"
+  },
+  {
+    firstName : "Susan",
+    lastName: "Steward"
+  },
+  {
+    firstName : "Daniel",
+    lastName: "Longbottom"
+  },
+  {
+    firstName : "Jacob",
+    lastName: "Black"
+  }
+];
+persons.map(getFullName);
 
+function getFullName(names, index, array) {
+  //index = the index of each element in the array
+  console.log(index)
+  //array = the array map method was called upon
+  console.log(array)
+  //returns the result of the function for each array element
+  return [console.log(names.firstName, names.lastName)]
+}
 
+//does not change the original array
+console.log(persons)
 
+persons.map(filterdNames)
 
+function filterdNames(name, index) {
+  if (name.firstName.length >= 6) {
+    return (console.log(index))
+  }
+}
 
+console.log('/************* 11. .filter() ***********/')
 
+//11. filter()
+//creates a new array filled with elements that pass a test provided by a function.
+//does not execute the function for empty elements.
+//returns = An array of elements that pass the test.
+const ages = [10, 15, 30, 45, 55, 60, 21, 22, 33];
+let ageResult = ages.filter(checkAldult)
+function checkAldult(age) {
+    return age >= 21;
+}
+console.log(ageResult);
 
+//0r An empty array if no elements pass the test.
+let overAge = ages.filter(checkOverAge);
+function checkOverAge(age) {
+  return age >= 61;
+}
+console.log(overAge);
 
+console.log("/************** 12. .reduce() ************/")
+//12. .reduce()
+//executes a reducer function for array element.
+const scores = [100, 15, 30, 45, 55, 60, 21, 22, 33];
+let reducedScores = scores.reduce(reduceFunc,20)
+function reduceFunc(i, cv, ci, array) {
+  console.log(`returned Value: ${i}`)
+  console.log(`currentValue: ${cv}`)
+  console.log(`currentIndex: ${ci}`)
+  console.log(array)
+  return i - cv
+}
+// returns the accumulated result from the last call of the callback function.
 
+console.log(reducedScores)
+//Egzample 2
+const people = [
+  {
+    firstName : "Malcom Reynolds",
 
+    age: 20
+  },
+  {
+    firstName : "Kaylee Frye", 
 
+    age: 24
+  },
+  {
+    firstName : "Jayne Cobb", 
 
+    age: 36
+  },
+  {
+    firstName : "Susan Steward",
 
+    age: 46
+  },
+  {
+    firstName : "Daniel Longbottom",
 
+    age: 18
+  },
+  {
+    firstName : "Jacob Black",
 
+    age: 38
+  }
+];
 
+let oldest = people.reduce(oldAge, 0)
+function oldAge(rv, cv) {
+    if (cv.age > rv){
+      return cv.age
+    }
+    return rv
+}
+console.log(oldest)
 
+const output = people.reduce(twoCharacters, "")
+function twoCharacters(p, cv, ci, a) {
+  let split = cv.firstName.split(" ");
+  let parts = `${split[0][0]}${split[1][0]}`
+  
+  if (ci == a.length -1) {
+      parts += "."
+  } else {
+      parts += ", "
+  }
+  return p + parts
+}
 
+console.log(output)
 
+console.log("/************** 13. .some() ************/")
+//13. .some()
+//works as a boolean data type
+//returns true (and stops) if the function returns true for one of the array elements.
+const humans = [
+  {
+    firstName : "Malcom",
+    lastName: "Reynolds"
+  },
+  {
+    firstName : "Kaylee", 
+    lastName: "Frye"
+  },
+  {
+    firstName : "Jayne", 
+    lastName: "Cobb"
+  },
+  {
+    firstName : "Susan",
+    lastName: "Steward"
+  },
+  {
+    firstName : "Daniel",
+    lastName: "Longbottom"
+  },
+  {
+    firstName : "Jacob",
+    lastName: "Black"
+  }
+];
+let checkName = humans.some(nameCheck)
+function nameCheck(n) {
+    return n.firstName === "Malcom"
+}
+console.log(checkName)
 
+console.log('/************* 14. every() *************/')
+//14. every()
+// method returns true if the function returns true for all elements and vice versa.
+//does not change the original array
+//array.every(function(currentValue, index, arr), thisValue)
 
+const men = [
+  {
+    firstName : "Malcom Reynolds",
 
+    age: 20
+  },
+  {
+    firstName : "Kaylee Frye", 
 
+    age: 24
+  },
+  {
+    firstName : "Jayne Cobb", 
 
+    age: 36
+  },
+  {
+    firstName : "Susan Steward",
 
+    age: 46
+  },
+  {
+    firstName : "Daniel Longbottom",
+
+    age: 18
+  },
+  {
+    firstName : "Jacob Black",
+
+    age: 38
+  }
+];
+
+let answer = men.every(divisibilityTest)
+function divisibilityTest(cv, i) {
+      return cv.age % i === 0
+}
+console.log(answer)
+
+console.log('/************* 15. find() *************/')
+//15. find()
+//returns the value of the first element that passes a test.
+const age = [10, 15, 30, 45, 55, 60, 21, 22, 33];
+let foundAge = age.find(findAge)
+function findAge(cv) {
+      return cv >= 10
+}
+console.log(foundAge)
+//else it will return undefined
+let noAge = age.find(findAge2)
+function findAge2(cv, i) {
+      return (cv * i) % 2 === 3;
+}
+console.log(noAge)
+
+console.log('/************* 16. findIndex() *************/')
+//16. findIndex()
+//returns the index (position) of the first element that passes a test.
+//array.findIndex(function(currentValue, index, arr), thisValue)
+const numberArray = [10, 15, 30, 45, 55, 60, 21, 22, 33];
+let numberTest1 = numberArray.findIndex(indexFind)
+function indexFind(cv) {
+      return cv % 4 === 0
+}
+console.log(numberTest1)
+//returns -1 if no match is found.
+let numberTest2 = numberArray.findIndex(indexFind2)
+function indexFind2(cv) {
+      return cv % 13 === 0
+}
+console.log(numberTest2)
+
+console.log('/************* 17. includes() *************/')
+//17. includes()
+//deals with string only
+//returns true if a string contains a specified string.
+const mens = [
+        "Malcom", "Reynolds","Kaylee", "Frye","Jayne", "Cobb","Susan", "Steward","Daniel","Jacob", "Longbottom", "Black"
+             ];
+
+let nameInclude = mens.includes("Jacob", -3)
+console.log(nameInclude)
+//Otherwise returns false
+let nameFound = mens.includes("joshua")
+console.log(nameFound)
+
+console.log('/************* 18. sort() *************/')
+//18. sort()
+//sorts the array alphabetically and mutates the original array
+const months = ['March', 'Jan', 'Feb', 'Dec', 'April'];
+months.sort();
+console.log(months);
+//if don want to change the original array usse the "toSorted()" 
+
+const newMonths = ['March', 'Jan', 'Feb', 'Dec', 'April'];
+let newArray = newMonths.toSorted();
+console.log(newArray);
+console.log(newMonths);
+
+console.log('/************* 19. reverse() *************/')
+//19. reverse()
+//reverses the order of the elements in an array
+//overwrites the original array.
+const r_months = ['March', 'Feb', 'Jan', 'Dec', 'April'];
+r_months.reverse()
+console.log(r_months)
+
+//if don want to change the original array usse the "toReversed()"
+const to_r_months = ['March', 'Jan', 'Feb', 'Dec', 'April'];
+let toReverse = to_r_months.toReversed()
+console.log(toReverse)
+console.log(to_r_months)
+
+console.log('/************* 20. join() *************/')
+//20. join()
+//returns an array as a string.
+//array.join(separator)
+const song = ["hoozambe", "shifura"]
+let joined = song.join(" and ")
+console.log(joined)
 
 
 
