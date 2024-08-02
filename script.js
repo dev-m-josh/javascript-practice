@@ -717,7 +717,7 @@ function checkAldult(age) {
     return age >= 21;
 }
 console.log(ageResult);
-
+console.log(ages);
 //0r An empty array if no elements pass the test.
 let overAge = ages.filter(checkOverAge);
 function checkOverAge(age) {
@@ -948,7 +948,7 @@ r_months.reverse()
 console.log(r_months)
 
 //if don want to change the original array usse the "toReversed()"
-const to_r_months = ['March', 'Jan', 'Feb', 'Dec', 'April'];
+const to_r_months = ['March', 'Jan', 'Feb', 'Dec', 'April;']
 let toReverse = to_r_months.toReversed()
 console.log(toReverse)
 console.log(to_r_months)
@@ -961,8 +961,9 @@ const song = ["hoozambe", "shifura"]
 let joined = song.join(" and ")
 console.log(joined)
 
-
-
+const joinn = ['March', 'Jan', 'Feb', 'Dec', 'April;']
+let joined2 = joinn.join()
+console.log(joined2)
 
 
 
