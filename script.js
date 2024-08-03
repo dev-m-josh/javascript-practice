@@ -507,8 +507,9 @@ console.log("/******** 1. .push() **********/")
 //The push() method returns the new length.
 
 const fruitsArray = ["Banana", "Orange", "Apple", "Mango"];
-let newfruitsArray= fruitsArray.push("lemmon", "berries");
 console.log(fruitsArray);
+let newfruitsArray= fruitsArray.push("lemmon", "berries");
+
 /*if we*/ console.log(newfruitsArray) /*we expect to get the new length of our original array*/
 
 
@@ -521,7 +522,7 @@ console.log("/********* 2. .pop() *********/")
 
 const carTypes = ["fielder", "BMW", "Tesla", "Ford"];
 let chosenCar= carTypes.pop();
-console.log(chosenCar)
+console.log(carTypes)
 
 
 /******************************************/
@@ -534,7 +535,7 @@ console.log("/******** 3. .shift() *********/")
 
 const fruits = ["Orange", "Banana", "Apple", "Mango"];
 let chosenFruit = fruits.shift()
-console.log(chosenFruit)
+console.log(fruits)
 
 console.log("/******** 4. .unshift() ********/")
 // 4. .unshift()
@@ -560,7 +561,7 @@ console.log("/********** 5. .slice() **********/")
 // 5. .slice()
 //The slice() method returns selected elements in an array, as a new array.
 //The slice() method selects from a given start, up to a (not inclusive) given end.
-const fiveCars = carsModels.slice(2, 7)
+const fiveCars = carsModels.slice(2, 9)
 console.log(fiveCars)
 //The slice() method does not change the original array.
 console.log(carsModels)
@@ -572,7 +573,8 @@ console.log(lastCars)
 console.log("/********** 6. .splice() **********/")
 //6. .splice()
 //The splice() method removes array elements Returns an array containing the removed items (if any)..
-let myFruitArray = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
+let myFruitArray = ["Mango", "Banana","lemmonade", "Orange", "Apple", "Mango", "Mango"];
+console.log(myFruitArray.lastIndexOf("Mango"))
 let removedFruits = myFruitArray.splice(1, 3);
 console.log(removedFruits);
 
@@ -591,8 +593,8 @@ console.log("/********** 7. .lastIndexOf() **********/")
 // start = The position where to start.
 
 //Will return -1 if the value is not found
-let text = "Have a good day";
-let result = text.lastIndexOf("nice");
+let text = "Have a d good day";
+let result = text.lastIndexOf("day");
 console.log(result)
 
 //The lastIndexOf() method returns the index (position) of the last occurrence of a specified value in a string.
@@ -615,7 +617,7 @@ console.log(indexOfMyFruits)
 
 //negative starts from the end but still from left to right
 let ruits = ["Banana","lemmonade", "Orange", "Apple", "Mango"];
-let indexOfFruits = ruits.indexOf("Apple", -1);
+let indexOfFruits = ruits.indexOf("Apple", 2);
 console.log(indexOfFruits)
 
 //if the value is not found the return is -1
@@ -687,9 +689,9 @@ persons.map(getFullName);
 
 function getFullName(names, index, array) {
   //index = the index of each element in the array
-  console.log(index)
+  //console.log(index)
   //array = the array map method was called upon
-  console.log(array)
+  //console.log(array)
   //returns the result of the function for each array element
   return [console.log(names.firstName, names.lastName)]
 }
@@ -724,6 +726,7 @@ function checkOverAge(age) {
   return age >= 61;
 }
 console.log(overAge);
+
 
 console.log("/************** 12. .reduce() ************/")
 //12. .reduce()
@@ -965,12 +968,22 @@ const joinn = ['March', 'Jan', 'Feb', 'Dec', 'April;']
 let joined2 = joinn.join()
 console.log(joined2)
 
+console.log("/*********** this ***********/")
+//use of this keyword→ reps the object executing the current function.
+const video = {
+      title: "dance",
+      play(){
+            console.log(this)
+      }
+}
+video.play()
 
+function Video(title) {
+      this.title = title;
+      console.log(this)
+}
 
-
-
-
-
+const x = new Video("sing")
 
 
 
