@@ -984,12 +984,20 @@ function Video(title) {
 }
 
 const x = new Video("sing")
+/********************************************/
 
+let button = document.getElementById("btn");
+let body = document.querySelector("body");
+let color = ['red', 'blue', 'green', 'yellow', 'pink', 'purple']
 
+body.style.backgroundColor = "greenyellow";
 
-
-
-
+button.addEventListener("click", changeColor);
+function changeColor() {
+      let colorIndex = parseInt(Math.random()*color.length);
+      console.log(colorIndex)
+      body.style.backgroundColor = color[colorIndex];
+}
 
 
 
