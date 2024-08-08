@@ -627,7 +627,7 @@ console.log(myIndexOf)
 
 console.log("/********** 9. .forEach() **********/")
 //8. forEach()
-//The forEach() method of Array instances executes a provided function once for each array element.
+//The forEach() instances executes a provided function once for each array element.
 //The forEach() method is not executed for empty elements
 //array.forEach(function(currentValue, index, arr), thisValue)
 //function() = to run for each array element
@@ -650,8 +650,8 @@ numbers.forEach(myFunction);
 
 console.log(sum)
 
-function myFunction(item) {
-  console.log(item)
+function myFunction(item, index) {
+  //console.log(index)
   sum += item;
 }
 
@@ -685,7 +685,7 @@ const persons = [
     lastName: "Black"
   }
 ];
-persons.map(getFullName);
+let names = persons.map(getFullName);
 
 function getFullName(names, index, array) {
   //index = the index of each element in the array
@@ -693,18 +693,33 @@ function getFullName(names, index, array) {
   //array = the array map method was called upon
   //console.log(array)
   //returns the result of the function for each array element
-  return [console.log(names.firstName, names.lastName)]
+  let fullName = names.firstName +" " + names.lastName
+      return fullName
 }
+console.log(names)
+
 
 //does not change the original array
-console.log(persons)
+//console.log(persons)
 
-persons.map(filterdNames)
+let namesGot = persons.map(filterdNames)
 
-function filterdNames(name, index) {
-  if (name.firstName.length >= 6) {
-    return (console.log(index))
+function filterdNames(name) {
+  name.firstName.length >= 6
+    return name.firstName
   }
+
+console.log(namesGot)
+
+const dates = ["08-8-2024", "5-11-2020", "31-12-2025", "20-10-1999"]
+
+const splittedDates = dates.map(formatDates)
+
+console.log(splittedDates)
+
+function formatDates(date) {
+      const parts = date.split("-");
+      return `${parts[2]}/${parts[1]}/${parts[0]}`
 }
 
 console.log('/************* 11. .filter() ***********/')
@@ -719,6 +734,7 @@ function checkAldult(age) {
     return age >= 21;
 }
 console.log(ageResult);
+//doesn't alter/change original array
 console.log(ages);
 //0r An empty array if no elements pass the test.
 let overAge = ages.filter(checkOverAge);
@@ -732,13 +748,13 @@ console.log("/************** 12. .reduce() ************/")
 //12. .reduce()
 //executes a reducer function for array element.
 const scores = [100, 15, 30, 45, 55, 60, 21, 22, 33];
-let reducedScores = scores.reduce(reduceFunc,20)
-function reduceFunc(i, cv, ci, array) {
-  console.log(`returned Value: ${i}`)
+let reducedScores = scores.reduce(reduceFunc, 20)
+function reduceFunc(rv, cv, ci, array) {
+  console.log(`returned Value: ${rv}`)
   console.log(`currentValue: ${cv}`)
   console.log(`currentIndex: ${ci}`)
   console.log(array)
-  return i - cv
+  return rv - cv
 }
 // returns the accumulated result from the last call of the callback function.
 
@@ -786,20 +802,6 @@ function oldAge(rv, cv) {
 }
 console.log(oldest)
 
-const output = people.reduce(twoCharacters, "")
-function twoCharacters(p, cv, ci, a) {
-  let split = cv.firstName.split(" ");
-  let parts = `${split[0][0]}${split[1][0]}`
-  
-  if (ci == a.length -1) {
-      parts += "."
-  } else {
-      parts += ", "
-  }
-  return p + parts
-}
-
-console.log(output)
 
 console.log("/************** 13. .some() ************/")
 //13. .some()
@@ -832,8 +834,8 @@ const humans = [
   }
 ];
 let checkName = humans.some(nameCheck)
-function nameCheck(n) {
-    return n.firstName === "Malcom"
+function nameCheck(name) {
+    return name.firstName === "Malcom"
 }
 console.log(checkName)
 
@@ -877,8 +879,8 @@ const men = [
 ];
 
 let answer = men.every(divisibilityTest)
-function divisibilityTest(cv, i) {
-      return cv.age % i === 0
+function divisibilityTest(cv, ci) {
+      return cv.age % ci === 0
 }
 console.log(answer)
 
@@ -888,13 +890,13 @@ console.log('/************* 15. find() *************/')
 const age = [10, 15, 30, 45, 55, 60, 21, 22, 33];
 let foundAge = age.find(findAge)
 function findAge(cv) {
-      return cv >= 10
+      return cv > 10
 }
 console.log(foundAge)
 //else it will return undefined
 let noAge = age.find(findAge2)
-function findAge2(cv, i) {
-      return (cv * i) % 2 === 3;
+function findAge2(cv, ci) {
+      return (cv * ci) % 2 === 3;
 }
 console.log(noAge)
 
@@ -917,13 +919,12 @@ console.log(numberTest2)
 
 console.log('/************* 17. includes() *************/')
 //17. includes()
-//deals with string only
 //returns true if a string contains a specified string.
 const mens = [
         "Malcom", "Reynolds","Kaylee", "Frye","Jayne", "Cobb","Susan", "Steward","Daniel","Jacob", "Longbottom", "Black"
              ];
 
-let nameInclude = mens.includes("Jacob", -3)
+let nameInclude = mens.includes("Jacob", 3)
 console.log(nameInclude)
 //Otherwise returns false
 let nameFound = mens.includes("joshua")
@@ -935,8 +936,9 @@ console.log('/************* 18. sort() *************/')
 const months = ['March', 'Jan', 'Feb', 'Dec', 'April'];
 months.sort();
 console.log(months);
-//if don want to change the original array usse the "toSorted()" 
+//if don want to change the original array use the "toSorted()" 
 
+console.log('/************* 18 b. toSort() *************/')
 const newMonths = ['March', 'Jan', 'Feb', 'Dec', 'April'];
 let newArray = newMonths.toSorted();
 console.log(newArray);
@@ -951,6 +953,7 @@ r_months.reverse()
 console.log(r_months)
 
 //if don want to change the original array usse the "toReversed()"
+console.log('/************* 19 b. toReverse() *************/')
 const to_r_months = ['March', 'Jan', 'Feb', 'Dec', 'April;']
 let toReverse = to_r_months.toReversed()
 console.log(toReverse)
@@ -968,27 +971,19 @@ const joinn = ['March', 'Jan', 'Feb', 'Dec', 'April;']
 let joined2 = joinn.join()
 console.log(joined2)
 
-console.log("/*********** this ***********/")
-//use of this keyword→ reps the object executing the current function.
-const video = {
-      title: "dance",
-      play(){
-            console.log(this)
-      }
-}
-video.play()
+console.log('/************* 21. fill() *************/')
+//fills specified elements in an array with a value.
 
-function Video(title) {
-      this.title = title;
-      console.log(this)
-}
+//overwrites the original array.
 
-const x = new Video("sing")
+//Start and end position can be specified. If not, all elements will be filled.
+
+
 /********************************************/
 
 let button = document.getElementById("btn");
 let body = document.querySelector("body");
-let color = ['red', 'blue', 'green', 'yellow', 'pink', 'purple']
+let color = ['red', 'blue', 'green', 'yellow', 'pink', 'purple','orange']
 
 body.style.backgroundColor = "greenyellow";
 
